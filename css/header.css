@@ -1,0 +1,97 @@
+.header {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 0;
+  grid-template-areas: "title toggle" "text toggle";
+  padding: 1rem 10%;
+  align-items: center;
+  color: hsl(228deg, 12%, 44%);
+  font-weight: 700;
+}
+@media screen and (max-width: 1000px) {
+  .header {
+    padding: 1rem 5%;
+  }
+}
+@media screen and (max-width: 850px) {
+  .header {
+    padding: 1rem 10%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .header {
+    padding: 1rem 5%;
+  }
+}
+.header__title {
+  color: hsl(230deg, 17%, 14%);
+}
+@media screen and (max-width: 850px) {
+  .header {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 0;
+  }
+  .header__title {
+    font-size: 1.5rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  .header {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 0;
+    grid-template-areas: "title" "text" "toggle";
+  }
+}
+
+.toggle {
+  height: 1.5rem;
+  width: 3.5rem;
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+  cursor: pointer;
+  transition: all 0.5s;
+  background-image: linear-gradient(hsl(230deg, 22%, 74%), hsl(230deg, 22%, 74%));
+  color: red;
+}
+.toggle::after {
+  content: "";
+  height: 80%;
+  width: 40%;
+  background-color: hsl(0deg, 0%, 100%);
+  border-radius: 50%;
+  display: inline;
+  position: relative;
+  margin-left: auto;
+}
+.toggle--dark-mode {
+  background-image: linear-gradient(45deg, hsl(210deg, 78%, 56%), hsl(146deg, 68%, 55%));
+}
+.toggle--dark-mode::after {
+  margin-right: auto;
+  margin-left: 0;
+  background-color: hsl(230deg, 17%, 14%);
+}
+.toggle__container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  grid-area: toggle;
+  justify-content: end;
+}
+@media screen and (max-width: 400px) {
+  .toggle__container {
+    justify-content: space-between;
+    border-top: 1px solid hsl(228deg, 12%, 44%);
+    padding-top: 1rem;
+  }
+}
+
+/*# sourceMappingURL=header.css.map */

@@ -1,0 +1,94 @@
+@use 'mixins-functions';
+@use 'colors';
+
+.section{
+    @include mixins-functions.container;
+    height: 40%;
+
+    &__title{
+        margin-bottom: 1rem;
+        color: map-get( colors.$light, "dark-grayish-blue");
+    }
+
+    &--dark{
+        transition: all 0.5s;
+
+        & .section__title{
+            color: map-get(colors.$dark, "white");
+        }
+
+        & .minicard{
+            transition: all 0.5s;
+            background-color: map-get(colors.$dark, "dark-desaturated-blue");
+
+            &__title{
+                color: map-get(colors.$dark, "text-dark");
+            }
+
+            &__number{
+                color: map-get(colors.$dark, "white");
+            }
+
+            &:hover{
+                background-color: hsl(230, 23%, 25%);
+            }
+        }
+    }
+}
+
+.container{
+    @include mixins-functions.grid-init(4, 1fr, 2, 1fr,1rem);
+
+    @include mixins-functions.mq-table{
+        @include mixins-functions.grid-init(2, 1fr, 4, 1fr,1rem);
+    }
+
+    @include mixins-functions.mq-phone{
+        @include mixins-functions.grid-init(1, 1fr, 8, 7rem,1rem);
+        // padding: ;
+    }
+}
+
+.minicard{
+    background-color: map-get(colors.$light, "light-grayish-blue");
+    padding: 1.2rem;
+    @include mixins-functions.grid-init(2, 1fr, 2, 1fr);
+    color: map-get(colors.$light, "very-dark-blue");    
+    cursor: pointer;
+
+    &__title{
+        font-size: .8rem
+    }
+
+    &__image{
+        @include mixins-functions.grid-self-position(start, end);
+    }
+
+    &__number{
+        font-size: 1.5rem;
+        font-weight: 700;
+        @include mixins-functions.grid-self-position(end, start);
+    }
+
+    &__icon{
+        height: .4rem;
+        width: .6rem;
+    }
+
+    &__percentage{
+        color: colors.$lime-green;
+        font-weight: 700;
+        &--color{
+            color: colors.$bright-red;
+        }
+    }
+
+    &__container{
+        @include mixins-functions.flex-init(center, center, 0.3rem);
+        @include mixins-functions.grid-self-position(end, end);
+    }
+
+    &:hover{
+        background-color: hsl(240, 15%, 88%);
+    }
+}

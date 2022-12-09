@@ -1,0 +1,86 @@
+@use 'colors';
+@use 'mixins-functions';
+
+.header{
+    @include mixins-functions.grid-init(2, 1fr, 2, 1fr, 0);
+    grid-template-areas: 
+    'title toggle'
+    'text toggle';
+    @include mixins-functions.container;
+    align-items: center;
+    color: map-get($map: colors.$light, $key: "dark-grayish-blue");
+    font-weight: 700;
+
+    &__text{
+        color: map-get(colors.$light, "very-grayish-blue") ;
+    }
+    
+    &__title{
+        color: map-get(colors.$light, "very-dark-blue") ;
+    }
+
+    @include mixins-functions.mq-table{
+        @include mixins-functions.grid-init(2, 2fr, 2, 1fr, 0);
+        &__title{
+            font-size: 1.5rem;
+        }
+    }
+
+    @include mixins-functions.mq-phone{
+        @include mixins-functions.grid-init(1, 1fr, 3, 1fr, 0);
+        grid-template-areas: 
+        'title'
+        'text'
+        'toggle';
+    }
+}
+
+.toggle{
+    height: 1.5rem;
+    width: 3.5rem;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 0 4px;
+    cursor: pointer;
+    transition: all .5s;
+    background-image: linear-gradient(hsl(230, 22%, 74%),hsl(230, 22%, 74%));
+    color:red;
+
+    &::after{
+        content: '';
+        height: 80%;
+        width: 40%;
+        background-color: map-get(colors.$light , "white-bg");
+        border-radius: 50%;
+        display: inline;
+        position: relative;
+        margin-left: auto;
+    }
+    
+    &--dark-mode{
+        background-image: linear-gradient(45deg, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+        &::after{
+            margin-right: auto;
+            margin-left: 0;
+            background-color: map-get(colors.$light, "very-dark-blue");
+        }
+    }
+
+    &__container{
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+        grid-area: toggle;
+        justify-content: end;
+
+        @include mixins-functions.mq-phone{
+            justify-content: space-between;
+            border-top: 1px solid map-get($map: colors.$light, $key: "dark-grayish-blue");
+            padding: {
+                top: 1rem;
+            }
+        }
+    }
+}

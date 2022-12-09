@@ -1,0 +1,54 @@
+@mixin flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-init($justify, $align, $gap: 0){
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gap;
+}
+
+@mixin grid-init($columns, $column-size, $rows, $row-size, $gap: 0px){
+    display: grid;
+    grid-template-columns: repeat($columns, $column-size);
+    grid-template-rows: repeat($rows, $row-size);
+    gap: $gap;
+}
+
+@mixin container{
+    padding: 1rem 10%;
+    @media screen and (max-width: 1000px) {
+        padding: 1rem 5%;
+    }
+    @include mq-table{
+        padding: 1rem 10%;
+    }
+
+    @media screen and (max-width: 550px) {
+        padding: 1rem 5%;
+    }
+}
+
+@mixin border-top($color){
+    border-top: .3rem solid $color;
+}
+
+@mixin grid-self-position($align, $justify){
+    align-self: $align;
+    justify-self: $justify;
+}
+
+@mixin mq-table{
+    @media screen and (max-width: 850px) {
+        @content;
+    }
+}
+
+@mixin mq-phone{
+    @media screen and (max-width: 400px){
+        @content;
+    }
+}

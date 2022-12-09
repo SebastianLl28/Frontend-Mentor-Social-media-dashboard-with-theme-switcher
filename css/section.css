@@ -1,0 +1,113 @@
+.section {
+  padding: 1rem 10%;
+  height: 40%;
+}
+@media screen and (max-width: 1000px) {
+  .section {
+    padding: 1rem 5%;
+  }
+}
+@media screen and (max-width: 850px) {
+  .section {
+    padding: 1rem 10%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .section {
+    padding: 1rem 5%;
+  }
+}
+.section__title {
+  margin-bottom: 1rem;
+  color: hsl(228deg, 12%, 44%);
+}
+.section--dark {
+  transition: all 0.5s;
+}
+.section--dark .section__title {
+  color: hsl(0deg, 0%, 100%);
+}
+.section--dark .minicard {
+  transition: all 0.5s;
+  background-color: hsl(228deg, 28%, 20%);
+}
+.section--dark .minicard__title {
+  color: hsl(228deg, 34%, 66%);
+}
+.section--dark .minicard__number {
+  color: hsl(0deg, 0%, 100%);
+}
+.section--dark .minicard:hover {
+  background-color: hsl(230deg, 23%, 25%);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1rem;
+}
+@media screen and (max-width: 850px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 1rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(8, 7rem);
+    gap: 1rem;
+  }
+}
+
+.minicard {
+  background-color: hsl(227deg, 47%, 96%);
+  padding: 1.2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 0px;
+  color: hsl(230deg, 17%, 14%);
+  cursor: pointer;
+}
+.minicard__title {
+  font-size: 0.8rem;
+}
+.minicard__image {
+  align-self: start;
+  justify-self: end;
+}
+.minicard__number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  align-self: end;
+  justify-self: start;
+}
+.minicard__icon {
+  height: 0.4rem;
+  width: 0.6rem;
+}
+.minicard__percentage {
+  color: hsl(163deg, 72%, 41%);
+  font-weight: 700;
+}
+.minicard__percentage--color {
+  color: hsl(356deg, 69%, 56%);
+}
+.minicard__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+  align-self: end;
+  justify-self: end;
+}
+.minicard:hover {
+  background-color: hsl(240deg, 15%, 88%);
+}
+
+/*# sourceMappingURL=section.css.map */
