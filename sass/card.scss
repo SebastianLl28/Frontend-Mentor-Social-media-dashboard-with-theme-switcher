@@ -19,7 +19,7 @@
             color: map-get(colors.$dark, "text-dark");
         }
         
-        & .card__number{
+        & .card__container .card__number{
             color: map-get(colors.$dark, "white");
         }
     }

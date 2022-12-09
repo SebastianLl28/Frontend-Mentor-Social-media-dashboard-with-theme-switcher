@@ -32,7 +32,7 @@
 .cards--dark .card p:not(.card__today) {
   color: hsl(228deg, 34%, 66%);
 }
-.cards--dark .card .card__number {
+.cards--dark .card .card__container .card__number {
   color: hsl(0deg, 0%, 100%);
 }
 @media screen and (max-width: 850px) {
